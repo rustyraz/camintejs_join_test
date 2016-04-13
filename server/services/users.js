@@ -1,10 +1,10 @@
 'use strict';
-var user_services = function(){};
+var user = function(){};
 
 //dependecies
 var user_schema;
 
-user_services.getAllUsers = function(callback){
+user.prototype.getAllUsers = function(callback){
 	var Query = user_schema.find();
 		Query.run({}, function(err,users){
 			if(!!err){
@@ -17,5 +17,5 @@ user_services.getAllUsers = function(callback){
 
 module.exports = function(_schema){
 	user_schema = _schema;	
-	return user_services;
+	return user;
 };

@@ -8,8 +8,9 @@ var user_services;
 user.route = function(server,session){
 
 	server.get('/users', function(req,res,next){
+		var service = new user_services();
 				
-		user_services.getAllUsers(function(err,result){
+		service.getAllUsers(function(err,result){
 			if(!!err){
 				res.send({
 					error : err
